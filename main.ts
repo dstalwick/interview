@@ -80,11 +80,11 @@ false
 ]
 answers = [
 ["Je suis un programmeur. J'écris du code pour les ordinateurs pour aider les musiciens dans la promotion de leurs chansons"],
-["J'ai choisis ce métier car quand j'étais jeune j'avais un Commodore 64. C'est un type d'ordinateur et il fallait le programmer pour casiment tous meme pour ouvrir une application il fallait le coder"],
+["J'ai choisis ce métier car quand j'étais jeune j'avais un Commodore 64. ", "C'est un type d'ordinateur et il fallait le programmer pour casiment tous meme pour ouvrir une application il fallait le coder"],
 ["J'ai obtenu un diplôme en Science informatique.", "Dans les études pour obtenir le diplôme, il y a beaucoup de programmation, mais aussi beaucoup de mathématique "],
 ["J'étais content d'avoir un emploi que j'aime vraiment.", "J'ai aussi été surpris par la quantité de travail qu'il faut pour quelque chose d'aussi simple que de créer un bouton.", "Et... qu'on peut partir son entreprise avec juste un ordinateur et soi-même "],
 ["Je commence vers 8 h à 17 h. J'ai des rencontres pour discuter de ce qu'on va faire et régler des problèmes... ", "mais je passe beaucoup de temps à écrire du code et écouter de la musique."],
-["Les ordinateurs ont permis aux gens d'éliminer la distance dans les communications.", "J'ai un collègue en Inde.", "Un impact négatif, est peut-être les dangers des médias sociaux"],
+["Les ordinateurs ont permis aux gens d'éliminer la distance dans les communications.", "J'ai un collègue en France et un autre en Inde.", "Un impact négatif, est peut-être les dangers des médias sociaux"],
 ["Si tu aimes la résolution de problèmes et créer, je recommenderais ce métier "]
 ]
 MakeyMakey.setSimulatorKeymap(
