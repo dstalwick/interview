@@ -53,10 +53,8 @@ let Damien_blue_monkey: Sprite = null
 let answers: string[][] = []
 let current_answer = 0
 let current_question = 0
-let answer2 = ""
 let question_shown: boolean[] = []
 let questions: string[] = []
-let interview_trigger = null
 current_question = -1
 current_answer = -1
 let can_show_menu = 1
@@ -67,7 +65,8 @@ questions = [
 "Y-a-t'il quelque chose qui t'as surpris en commençant ce métier? Des conseils?",
 "Comment se déroule une journée typique?",
 "Quels sont les bons/moins bons côtés de ce métier?",
-"Recommenderais-tu ce métier?"
+"Recommenderais-tu ce métier?",
+"CONCLUSION"
 ]
 question_shown = [
 false,
@@ -86,11 +85,18 @@ answers = [
 ["Je commence vers 8 h à 17 h.", "J'ai des rencontres pour discuter de ce qu'on va faire et régler des problèmes... ", "mais je passe beaucoup de temps à écrire du code et écouter de la musique."],
 [
 "Un impact positif est que les ordinateurs ont permis aux gens d'éliminer la distance dans les communications.",
-"J'ai un collègue en France et un autre en Inde, et je travail directement avec eux chaque jounée.",
+"J'ai un collègue en France et un autre en Inde, et je travail directement avec eux chaque journée.",
 "Un impact négatif, est peut-être les dangers des médias sociaux.",
-"Les médias sociaux peuvent créer des addictions et avoir un impact négatif sur l'estime de soi."
+"Les médias sociaux peuvent créer des dépendances et avoir un impact négatif sur l'estime de soi."
 ],
-["Si tu aimes la résolution de problèmes et créer, je recommenderais ce métier. ", "Je recommande de commencer avec de la programmation simple d'environnements de jeux comme ceci en utilisant Makecode arcade!"]
+["Si tu aimes la résolution de problèmes et créer, je recommenderais ce métier. ", "Je recommande de commencer avec de la programmation simple d'environnements de jeux comme ceci en utilisant Makecode arcade!"],
+[
+"En conclusion...",
+"J'ai vraiment aimé faire cette entrevue avec mon papa",
+"et programmer cette présentation",
+"En maintenant...",
+"C'est l'heure de la BATAILLE!!!"
+]
 ]
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
