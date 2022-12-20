@@ -61,13 +61,13 @@ current_question = -1
 current_answer = -1
 let can_show_menu = 1
 questions = [
-"quelle est votre metier",
-"pourquoi as tu choisi ce metier",
-"quelle sont les étude pour se métier",
-"y-a-til quelquechose qui as te surpris avice ce metier",
-"comment est une jounee typique",
-"quelles sont les bons/moins bons cotes de ce metier",
-"recommendrais-tu ce metier"
+"Quel est ton métier?",
+"Pourquoi as-tu choisi ce métier?",
+"Quels sont les étude pour ce métier?",
+"Y-a-t'il quelque chose qui t'as surpris en commençant ce métier? Des conseils?",
+"Comment se déroule une journée typique?",
+"Quels sont les bons/moins bons côtés de ce métier?",
+"Recommenderais-tu ce métier?"
 ]
 question_shown = [
 false,
@@ -82,10 +82,10 @@ answers = [
 ["Je suis un programmeur. J'écris du code pour les ordinateurs pour aider les musiciens dans la promotion de leurs chansons"],
 ["J'ai choisis ce métier car quand j'étais jeune j'avais un Commodore 64. C'est un type d'ordinateur et il fallait le programmer pour casiment tous meme pour ouvrir une application il fallait le coder"],
 ["J'ai obtenu un diplôme en Science informatique.", "Dans les études pour obtenir le diplôme, il y a beaucoup de programmation, mais aussi beaucoup de mathématique "],
-["answer 3"],
-["answer 4"],
-["answer 5"],
-["answer 6"]
+["J'étais content d'avoir un emploi que j'aime vraiment.", "J'ai aussi été surpris par la quantité de travail qu'il faut pour quelque chose d'aussi simple que de créer un bouton.", "Et... qu'on peut partir son entreprise avec juste un ordinateur et soi-même "],
+["Je commence vers 8 h à 17 h. J'ai des rencontres pour discuter de ce qu'on va faire et régler des problèmes... ", "mais je passe beaucoup de temps à écrire du code et écouter de la musique."],
+["Les ordinateurs ont permis aux gens d'éliminer la distance dans les communications.", "J'ai un collègue en Inde.", "Un impact négatif, est peut-être les dangers des médias sociaux"],
+["Si tu aimes la résolution de problèmes et créer, je recommenderais ce métier "]
 ]
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
