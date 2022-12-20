@@ -53,10 +53,10 @@ let Damien_blue_monkey: Sprite = null
 let answers: string[][] = []
 let current_answer = 0
 let current_question = 0
-let interview_trigger = null
-let questions: string[] = []
-let question_shown: boolean[] = []
 let answer2 = ""
+let question_shown: boolean[] = []
+let questions: string[] = []
+let interview_trigger = null
 current_question = -1
 current_answer = -1
 let can_show_menu = 1
@@ -64,14 +64,12 @@ questions = [
 "quelle est votre metier",
 "pourquoi as tu choisi ce metier",
 "quelle sont les étude pour se métier",
-"comment est une journer typique ",
-"some other qeustion",
-"last question",
-"another",
-"another one"
+"y-a-til quelquechose qui as te surpris avice ce metier",
+"comment est une jounee typique",
+"quelles sont les bons/moins bons cotes de ce metier",
+"recommendrais-tu ce metier"
 ]
 question_shown = [
-false,
 false,
 false,
 false,
@@ -81,14 +79,13 @@ false,
 false
 ]
 answers = [
-["this is a very long answer to test how the answer box looks with a very long answer because long answers are great"],
+["this is a very long answer to test how the answer box looks with a very long answer because long answers are great", "here is another part"],
 ["answer 1", "is a long answer", "like very long"],
 ["answer 2"],
 ["answer 3"],
 ["answer 4"],
 ["answer 5"],
-["answer 6"],
-["answer 7"]
+["answer 6"]
 ]
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
