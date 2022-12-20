@@ -79,9 +79,9 @@ false,
 false
 ]
 answers = [
-["this is a very long answer to test how the answer box looks with a very long answer because long answers are great", "here is another part"],
-["answer 1", "is a long answer", "like very long"],
-["answer 2"],
+["Je suis un programmeur. J'écris du code pour les ordinateurs pour aider les musiciens dans la promotion de leurs chansons"],
+["J'ai choisis ce métier car quand j'étais jeune j'avais un Commodore 64. C'est un type d'ordinateur et il fallait le programmer pour casiment tous meme pour ouvrir une application il fallait le coder"],
+["J'ai obtenu un diplôme en Science informatique.", "Dans les études pour obtenir le diplôme, il y a beaucoup de programmation, mais aussi beaucoup de mathématique "],
 ["answer 3"],
 ["answer 4"],
 ["answer 5"],
