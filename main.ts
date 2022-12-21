@@ -176,16 +176,7 @@ current_question = -1
 current_answer = -1
 let can_show_menu = 1
 battleStarted = 0
-questions = [
-"Quel est ton métier?",
-"Pourquoi as-tu choisi ce métier?",
-"Quels sont les étude pour ce métier?",
-"Y-a-t'il quelque chose qui t'as surpris en commençant ce métier? Des conseils?",
-"Comment se déroule une journée typique?",
-"Quels sont les bons/moins bons côtés de ce métier?",
-"Recommenderais-tu ce métier?",
-"CONCLUSION"
-]
+questions = 0
 question_shown = [
 false,
 false,
