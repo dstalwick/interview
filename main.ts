@@ -1,3 +1,10 @@
+namespace SpriteKind {
+    export const EnemyProjectile = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.EnemyProjectile, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    sprite.destroy()
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Damien_blue_monkey.tileKindAt(TileDirection.Right, sprites.dungeon.buttonPink)) {
         controller.player1.moveSprite(Damien_blue_monkey, 0, 0)
@@ -6,7 +13,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 if (to_show.length > 0) {
                 ask_question(to_show)
             } else {
-            	
+                start_battle()
             }
         } else {
             show_answer(current_question, current_answer)
@@ -23,6 +30,16 @@ function show_answer (index: number, answer_number: number) {
         current_answer = -1
     }
     question_shown[index] = true
+}
+info.onCountdownEnd(function () {
+    battle()
+})
+function battle () {
+    Dad_BORING_monkey.follow(Damien_blue_monkey, 30)
+}
+function start_battle () {
+    battleStarted = 1
+    info.startCountdown(1)
 }
 function ask_question (to_show: string[]) {
     story.showPlayerChoices(to_show[0], to_show[1], to_show[2], to_show[3])
@@ -48,16 +65,117 @@ function ask_question (to_show: string[]) {
     }
     show_answer(current_question, current_answer)
 }
+info.onLifeZero(function () {
+    game.over(false, effects.melt)
+})
+controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    if (battleStarted == 1) {
+        if (dx > 0) {
+            projectile3 = sprites.createProjectileFromSprite(img`
+                . . . . . . . e e e e . . . . . 
+                . . . . . e e 4 5 5 5 e e . . . 
+                . . . . e 4 5 6 2 2 7 6 6 e . . 
+                . . . e 5 6 6 7 2 2 6 4 4 4 e . 
+                . . e 5 2 2 7 6 6 4 5 5 5 5 4 . 
+                . e 5 6 2 2 8 8 5 5 5 5 5 4 5 4 
+                . e 5 6 7 7 8 5 4 5 4 5 5 5 5 4 
+                e 4 5 8 6 6 5 5 5 5 5 5 4 5 5 4 
+                e 5 c e 8 5 5 5 4 5 5 5 5 5 5 4 
+                e 5 c c e 5 4 5 5 5 4 5 5 5 e . 
+                e 5 c c 5 5 5 5 5 5 5 5 4 e . . 
+                e 5 e c 5 4 5 4 5 5 5 e e . . . 
+                e 5 e e 5 5 5 5 5 4 e . . . . . 
+                4 5 4 e 5 5 5 5 e e . . . . . . 
+                . 4 5 4 5 5 4 e . . . . . . . . 
+                . . 4 4 e e e . . . . . . . . . 
+                `, Damien_blue_monkey, 50, 0)
+        } else if (dx < 0) {
+            projectile3 = sprites.createProjectileFromSprite(img`
+                . . . . . . . e e e e . . . . . 
+                . . . . . e e 4 5 5 5 e e . . . 
+                . . . . e 4 5 6 2 2 7 6 6 e . . 
+                . . . e 5 6 6 7 2 2 6 4 4 4 e . 
+                . . e 5 2 2 7 6 6 4 5 5 5 5 4 . 
+                . e 5 6 2 2 8 8 5 5 5 5 5 4 5 4 
+                . e 5 6 7 7 8 5 4 5 4 5 5 5 5 4 
+                e 4 5 8 6 6 5 5 5 5 5 5 4 5 5 4 
+                e 5 c e 8 5 5 5 4 5 5 5 5 5 5 4 
+                e 5 c c e 5 4 5 5 5 4 5 5 5 e . 
+                e 5 c c 5 5 5 5 5 5 5 5 4 e . . 
+                e 5 e c 5 4 5 4 5 5 5 e e . . . 
+                e 5 e e 5 5 5 5 5 4 e . . . . . 
+                4 5 4 e 5 5 5 5 e e . . . . . . 
+                . 4 5 4 5 5 4 e . . . . . . . . 
+                . . 4 4 e e e . . . . . . . . . 
+                `, Damien_blue_monkey, -50, 0)
+        } else if (dy > 0) {
+            projectile3 = sprites.createProjectileFromSprite(img`
+                . . . . . . . e e e e . . . . . 
+                . . . . . e e 4 5 5 5 e e . . . 
+                . . . . e 4 5 6 2 2 7 6 6 e . . 
+                . . . e 5 6 6 7 2 2 6 4 4 4 e . 
+                . . e 5 2 2 7 6 6 4 5 5 5 5 4 . 
+                . e 5 6 2 2 8 8 5 5 5 5 5 4 5 4 
+                . e 5 6 7 7 8 5 4 5 4 5 5 5 5 4 
+                e 4 5 8 6 6 5 5 5 5 5 5 4 5 5 4 
+                e 5 c e 8 5 5 5 4 5 5 5 5 5 5 4 
+                e 5 c c e 5 4 5 5 5 4 5 5 5 e . 
+                e 5 c c 5 5 5 5 5 5 5 5 4 e . . 
+                e 5 e c 5 4 5 4 5 5 5 e e . . . 
+                e 5 e e 5 5 5 5 5 4 e . . . . . 
+                4 5 4 e 5 5 5 5 e e . . . . . . 
+                . 4 5 4 5 5 4 e . . . . . . . . 
+                . . 4 4 e e e . . . . . . . . . 
+                `, Damien_blue_monkey, 0, 50)
+        } else {
+            projectile3 = sprites.createProjectileFromSprite(img`
+                . . . . . . . e e e e . . . . . 
+                . . . . . e e 4 5 5 5 e e . . . 
+                . . . . e 4 5 6 2 2 7 6 6 e . . 
+                . . . e 5 6 6 7 2 2 6 4 4 4 e . 
+                . . e 5 2 2 7 6 6 4 5 5 5 5 4 . 
+                . e 5 6 2 2 8 8 5 5 5 5 5 4 5 4 
+                . e 5 6 7 7 8 5 4 5 4 5 5 5 5 4 
+                e 4 5 8 6 6 5 5 5 5 5 5 4 5 5 4 
+                e 5 c e 8 5 5 5 4 5 5 5 5 5 5 4 
+                e 5 c c e 5 4 5 5 5 4 5 5 5 e . 
+                e 5 c c 5 5 5 5 5 5 5 5 4 e . . 
+                e 5 e c 5 4 5 4 5 5 5 e e . . . 
+                e 5 e e 5 5 5 5 5 4 e . . . . . 
+                4 5 4 e 5 5 5 5 e e . . . . . . 
+                . 4 5 4 5 5 4 e . . . . . . . . 
+                . . 4 4 e e e . . . . . . . . . 
+                `, Damien_blue_monkey, 0, -50)
+        }
+    }
+})
+info.player2.onLifeZero(function () {
+    game.over(true, effects.confetti)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.player2.changeLifeBy(-2)
+    sprite.destroy(effects.fire, 100)
+})
+let projectile: Sprite = null
+let projectile2: Sprite = null
+let projectile3: Sprite = null
 let answer: string[] = []
+let Dad_BORING_monkey: Sprite = null
 let Damien_blue_monkey: Sprite = null
 let answers: string[][] = []
+let battleStarted = 0
 let current_answer = 0
 let current_question = 0
-let question_shown: boolean[] = []
+let dy = 0
+let dx = 0
 let questions: string[] = []
+let question_shown: boolean[] = []
+dx = 0
+dy = 0
 current_question = -1
 current_answer = -1
 let can_show_menu = 1
+battleStarted = 0
 questions = [
 "Quel est ton métier?",
 "Pourquoi as-tu choisi ce métier?",
@@ -125,26 +243,88 @@ Damien_blue_monkey = sprites.create(img`
     . . . 6 1 1 c 1 1 b b 1 6 . . . 
     . . . . 6 6 6 6 6 6 6 6 6 . . . 
     `, SpriteKind.Player)
-let Dad_BORING_monkey = sprites.create(img`
-    . . . . f f f f f . . . . . . . 
-    . . . f e e e e e f . . . . . . 
-    . . f d d d d e e e f . . . . . 
-    . c d f d d f d e e f f . . . . 
-    . c d f d d f d e e d d f . . . 
-    c d e e d d d d e e b d c . . . 
-    c d d d d c d d e e b d c . f f 
-    c c c c c d d d e e f c . f e f 
-    . f d d d d d e e f f . . f e f 
-    . . f f f f f e e e e f . f e f 
-    . . . . f e e e e e e e f f e f 
-    . . . f e f f e f e e e e f f . 
-    . . . f e f f e f e e e e f . . 
-    . . . f d b f d b f f e f . . . 
-    . . . f d d c d d b b d f . . . 
-    . . . . f f f f f f f f f . . . 
-    `, SpriteKind.Player)
-controller.player1.moveSprite(Damien_blue_monkey, 75, 75)
+Dad_BORING_monkey = sprites.create(img`
+    ....fffff...........
+    ...feeeeef.......99.
+    ..fddddeeef.66666666
+    .cdfddfdeeff..999.88
+    .cdfddfdeeddf...888.
+    cdeeddddeebdc.666666
+    cddddcddeebdc.ff....
+    cccccdddeefc.fef....
+    .fdddddeeff..fef..99
+    ..fffffeeeef.fef.99.
+    ....feeeeeeeffef....
+    ...feffefeeeeff.....
+    ...feffefeeeef99.999
+    ...fdbfdbffef.9.99..
+    ...fddcddbbdf.......
+    ....fffffffff.......
+    `, SpriteKind.Enemy)
+controller.player1.moveSprite(Damien_blue_monkey, 100, 100)
+info.setLife(30)
+info.player2.setLife(40)
 scene.cameraFollowSprite(Damien_blue_monkey)
 tiles.setCurrentTilemap(tilemap`level1`)
 tiles.placeOnRandomTile(Damien_blue_monkey, sprites.dungeon.buttonTeal)
 tiles.placeOnRandomTile(Dad_BORING_monkey, sprites.dungeon.buttonPink)
+game.onUpdateInterval(50, function () {
+    if (controller.dx() != 0) {
+        dx = controller.dx()
+        dy = 0
+    }
+    if (controller.dy() != 0) {
+        dy = controller.dy()
+        dx = 0
+    }
+})
+game.onUpdateInterval(500, function () {
+    if (battleStarted == 1) {
+        projectile2 = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 1 f f 1 . . . . . . 
+            . . . . . 2 f 4 f f 2 . . . . . 
+            . . . . . 2 f f 4 f 2 . . . . . 
+            . . . . . . 1 f f 1 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, Dad_BORING_monkey, 100, 100)
+        projectile2.follow(Damien_blue_monkey)
+        projectile2.setKind(SpriteKind.EnemyProjectile)
+    }
+})
+game.onUpdateInterval(10000, function () {
+    if (battleStarted == 1) {
+        for (let index = 0; index < 15; index++) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . 2 . . . . . . . 
+                . 2 . . . . . . 2 . . . . 2 2 . 
+                . 2 2 . . . . . 2 . . . 2 2 . . 
+                . . 2 2 2 . . . 2 . . 2 2 . . . 
+                . . . . 2 2 . . 2 . 2 2 . . . . 
+                . . . . . 2 2 2 2 2 . . . . . . 
+                . . . . . . 3 1 1 3 . . . . . . 
+                . 2 2 2 2 2 1 1 1 1 2 . . . . . 
+                . . . . . 2 1 1 1 1 2 2 2 2 2 . 
+                . . . . 2 2 3 1 1 3 2 . . . . . 
+                . . . . 2 . . 2 2 . 2 . . . . . 
+                . . . 2 . . . 2 . . . 2 . . . . 
+                . . 2 2 . . . 2 . . . . 2 . . . 
+                . . 2 . . . . 2 . . . . . 2 2 . 
+                . . . . . . . . . . . . . . 2 . 
+                . . . . . . . . . . . . . . . . 
+                `, Dad_BORING_monkey, randint(0, 200), randint(0, 200))
+            projectile.follow(Damien_blue_monkey, 99)
+            projectile.setKind(SpriteKind.EnemyProjectile)
+        }
+    }
+})
